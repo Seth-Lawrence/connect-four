@@ -23,7 +23,7 @@ function makeBoard() {
   // init an array called row
   // push null - width
   // push row - board six times = height
-  let row = [];
+  let row = []; //ask about best practice for initializing
 
   for (let j = 0; j < HEIGHT; j++) {
     row = [];
@@ -51,35 +51,34 @@ function makeHtmlBoard() {
    */
   for (let x = 0; x < WIDTH; x++) {
     const headCell = document.createElement("td");
+    
     headCell.setAttribute("id", `top-${x}`);
     headCell.addEventListener("click", handleClick);
     top.append(headCell);
   }
+  
   htmlBoard.append(top);
 
   // dynamically creates the main part of html board
   // uses HEIGHT to create table rows
   // uses WIDTH to create table cells for each row
   for (let y = 0; y < HEIGHT; y++) {
-    // TODO: Create a table row element and assign to a "row" variable
-    //create an element "tr", assign it to "row"
+    //Create a table row element and assign to a "row" variable
+
     const row = document.createElement("tr");
 
     for (let x = 0; x < WIDTH; x++) {
-      // TODO: Create a table cell element and assign to a "cell" variable
-      //create "td" element, assign to "cell"
+      //Create a table cell element and assign to a "cell" variable
+  
       const cell = document.createElement("td");
-      // TODO: add an id, c-y-x, to the above table cell element
-      //   (for example, for the cell at y=2, x=3, the ID should be "c-2-3")
-      //set the attribute of "cell" to be (id, `c-${y}-${x})
+      // add an id, c-y-x, to the above table cell element
+      // (for example, for the cell at y=2, x=3, the ID should be "c-2-3")
       cell.setAttribute("id", `c-${y}-${x}`);
-      // TODO: append the table cell to the table row
+      // append the table cell to the table row
       row.append(cell);
-
     }
-    // TODO: append the row to the html board
+    //append the row to the html board
     htmlBoard.append(row);
-
   }
 }
 
