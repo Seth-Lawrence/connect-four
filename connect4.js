@@ -20,6 +20,20 @@ const board = []; // array of rows, each row is array of cells  (board[y][x])
 
 function makeBoard() {
   // TODO: set "board" to empty HEIGHT x WIDTH matrix array
+  // init an array called row
+  // push null - width
+  // push row - board six times = height
+  let row = [];
+
+  for (let j = 0; j < HEIGHT; j++) {
+    row = [];
+
+    for (let i = 0; i < WIDTH; i++) {
+      row.push(null);
+    }
+
+    board.push(row);
+  }
 }
 
 /** makeHtmlBoard: make HTML table and row of column tops. */
@@ -27,11 +41,14 @@ function makeBoard() {
 function makeHtmlBoard() {
   const htmlBoard = document.getElementById("board");
 
-  // TODO: add comment for this code
+    /** creating a top row for all the clickable cells */
   const top = document.createElement("tr");
   top.setAttribute("id", "column-top");
 
-  // TODO: add comment for this code
+
+  /** individual cells for user to click on to choose to drop pieces
+   * appends to the top row
+   */
   for (let x = 0; x < WIDTH; x++) {
     const headCell = document.createElement("td");
     headCell.setAttribute("id", `top-${x}`);
