@@ -19,7 +19,7 @@ const board = []; // array of rows, each row is array of cells  (board[y][x])
  */
 
 function makeBoard() {
-  // TODO: set "board" to empty HEIGHT x WIDTH matrix array
+  // set "board" to empty HEIGHT x WIDTH matrix array
   // init an array called row
   // push null - width
   // push row - board six times = height
@@ -62,17 +62,23 @@ function makeHtmlBoard() {
   // uses WIDTH to create table cells for each row
   for (let y = 0; y < HEIGHT; y++) {
     // TODO: Create a table row element and assign to a "row" variable
+    //create an element "tr", assign it to "row"
+    const row = document.createElement("tr");
 
     for (let x = 0; x < WIDTH; x++) {
       // TODO: Create a table cell element and assign to a "cell" variable
-
+      //create "td" element, assign to "cell"
+      const cell = document.createElement("td");
       // TODO: add an id, c-y-x, to the above table cell element
       //   (for example, for the cell at y=2, x=3, the ID should be "c-2-3")
-
+      //set the attribute of "cell" to be (id, `c-${y}-${x})
+      cell.setAttribute("id", `c-${y}-${x}`);
       // TODO: append the table cell to the table row
+      row.append(cell);
 
     }
     // TODO: append the row to the html board
+    htmlBoard.append(row);
 
   }
 }
