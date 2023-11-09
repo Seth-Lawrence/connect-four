@@ -123,10 +123,13 @@ function checkForWin() {
    * returns true if all are legal coordinates for a cell & all cells match
    * currPlayer
    */
+  //
+
   function _win(cells) {
 
     // TODO: Check four cells to see if they're all legal & all color of current
     // player
+    //
 
   }
 
@@ -141,9 +144,10 @@ function checkForWin() {
       // [ [y, x], [y, x], [y, x], [y, x] ]
 
       let horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
-      let vert;
-      let diagDL;
-      let diagDR;
+      let vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];
+      let diagDL = [[y, WIDTH-(x+1)], [y + 1, WIDTH-(x+2)], [y + 2, WIDTH-(x+3)],
+      [y + 3, WIDTH-(x+4)]];
+      let diagDR = [[y, x], [y + 1, x+1], [y + 2, x+1], [y + 3, x+1]];
 
       // find winner (only checking each win-possibility as needed)
       if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {
