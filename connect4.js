@@ -23,12 +23,11 @@ function makeBoard() {
   // init an array called row
   // push null - width
   // push row - board six times = height
-  let row = []; //ask about best practice for initializing
 
-  for (let j = 0; j < HEIGHT; j++) {
-    row = [];
+  for (let y = 0; y < HEIGHT; y++) { 
+    const row = [];
 
-    for (let i = 0; i < WIDTH; i++) {
+    for (let x = 0; x < WIDTH; x++) {
       row.push(null);
     }
 
@@ -45,10 +44,9 @@ function makeHtmlBoard() {
   const top = document.createElement("tr");
   top.setAttribute("id", "column-top");
 
-
-  /** individual cells for user to click on to choose to drop pieces
-   * appends to the top row
-   */
+  //individual cells for user to click on to choose to drop pieces
+  // appends to the top row
+  
   for (let x = 0; x < WIDTH; x++) {
     const headCell = document.createElement("td");
     
