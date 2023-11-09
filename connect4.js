@@ -24,7 +24,7 @@ function makeBoard() {
   // push null - width
   // push row - board six times = height
 
-  for (let y = 0; y < HEIGHT; y++) { 
+  for (let y = 0; y < HEIGHT; y++) {
     const row = [];
 
     for (let x = 0; x < WIDTH; x++) {
@@ -40,21 +40,21 @@ function makeBoard() {
 function makeHtmlBoard() {
   const htmlBoard = document.getElementById("board");
 
-    /** creating a top row for all the clickable cells */
+  /** creating a top row for all the clickable cells */
   const top = document.createElement("tr");
   top.setAttribute("id", "column-top");
 
   //individual cells for user to click on to choose to drop pieces
   // appends to the top row
-  
+
   for (let x = 0; x < WIDTH; x++) {
     const headCell = document.createElement("td");
-    
+
     headCell.setAttribute("id", `top-${x}`);
     headCell.addEventListener("click", handleClick);
     top.append(headCell);
   }
-  
+
   htmlBoard.append(top);
 
   // dynamically creates the main part of html board
@@ -67,7 +67,7 @@ function makeHtmlBoard() {
 
     for (let x = 0; x < WIDTH; x++) {
       //Create a table cell element and assign to a "cell" variable
-  
+
       const cell = document.createElement("td");
       // add an id, c-y-x, to the above table cell element
       // (for example, for the cell at y=2, x=3, the ID should be "c-2-3")
@@ -85,7 +85,17 @@ function makeHtmlBoard() {
 
 function findSpotForCol(x) {
   // TODO: write the real version of this, rather than always returning 5
-  return 5;
+
+  let y = HEIGHT - 1;
+
+  while (y >= 0) {
+    let cell = board[y][x];
+    if (cell === null) {
+      return y;
+    } else
+      y--;
+  }
+  return null;
 }
 
 /** placeInTable: update DOM to place piece into HTML table of board */
