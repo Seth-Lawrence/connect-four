@@ -84,7 +84,6 @@ function makeHtmlBoard() {
  *    (return null if filled) */
 
 function findSpotForCol(x) {
-  // TODO: write the real version of this, rather than always returning 5
 
   let y = HEIGHT - 1;
 
@@ -95,13 +94,24 @@ function findSpotForCol(x) {
     } else
       y--;
   }
+
   return null;
 }
 
 /** placeInTable: update DOM to place piece into HTML table of board */
 
 function placeInTable(y, x) {
-  // TODO: make a div and insert into correct table cell
+  //make a div and insert into correct table cell
+  console.log(y, x);
+  const piece = document.createElement("div");
+  //add classes 'piece' `p${currPlayer}`
+  piece.classList.add("piece");
+  piece.classList.add(`p${currPlayer}`);
+  //append the piece to cell with id of x and y as coord
+  const cell = document.querySelector(`#c-${y}-${x}`);
+  cell.append(piece);
+  //reassign the current coordinate to be current player
+  board[y][x] = currPlayer;
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
